@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advik Dhand — Author & Financial Educator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f4ef;
+      --surface: #ffffff;
+      --surface2: #f0ece5;
+      --border: #e0d9cf;
+      --text: #1a1714;
+      --muted: #7a7168;
+      --accent: #c8680a;
+      --accent2: #a85208;
+      --white: #ffffff;
+      --ff-display: 'Playfair Display', Georgia, serif;
+      --ff-body: 'DM Sans', sans-serif;
+      --ff-mono: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--ff-body);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(247,244,239,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--ff-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      padding: 0.45rem 1.1rem;
+      border-radius: 2px;
+      font-weight: 600 !important;
+    }
+    .nav-cta { background: var(--accent); color: #fff !important; }
+    .nav-cta:hover { background: var(--accent2) !important; color: #fff !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 4rem 4rem;
+    }
+    .hero-tag {
+      font-family: var(--ff-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .hero-tag::before { content: ''; width: 2rem; height: 1px; background: var(--accent); }
+    .hero-headline {
+      font-family: var(--ff-display);
+      font-size: clamp(3.5rem, 6vw, 6.5rem);
+      font-weight: 900;
+      line-height: 1.0;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 38ch;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      font-family: var(--ff-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-right {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-image-wrap {
+      width: 420px; height: 560px;
+      position: relative;
+      border: 1px solid var(--border);
+    }
+    .hero-image-wrap::before {
+      content: '';
+      position: absolute; inset: -12px -12px 12px 12px;
+      border: 1px solid var(--accent);
+      z-index: -1;
+    }
+    .hero-photo {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: grayscale(30%) contrast(1.1);
+      background: var(--surface2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--ff-display);
+      font-size: 6rem;
+      font-weight: 900;
+      color: var(--border);
+      overflow: hidden;
+    }
+    .hero-photo-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #e8dfd3 0%, #d5c9b8 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--ff-display);
+      font-size: 8rem;
+      font-weight: 900;
+      color: #c4b8a8;
+      letter-spacing: -0.05em;
+      overflow: hidden;
+    }
+    .hero-photo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-stats {
+      position: absolute;
+      bottom: 2rem; left: -3rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.4rem 1.8rem;
+      display: flex; gap: 2rem;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: var(--ff-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── FEATURED ─── */
+    .featured {
+      padding: 2rem 4rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 3rem;
+      overflow: hidden;
+    }
+    .featured-label {
+      font-family: var(--ff-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .featured-logos {
+      display: flex; gap: 3rem; align-items: center;
+      flex-wrap: wrap;
+    }
+    .featured-logo {
+      font-family: var(--ff-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--border);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .featured-logo:hover { color: var(--muted); }
+
+    /* ─── ABOUT ─── */
+    .about {
+      padding: 7rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .section-label {
+      font-family: var(--ff-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .section-title em { font-style: italic; color: var(--accent); }
+    .section-body { color: var(--muted); line-height: 1.8; font-size: 1rem; }
+
+    .about-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.6rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .about-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .about-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .about-card:hover::before { transform: scaleX(1); }
+    .card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .card-title {
+      font-family: var(--ff-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .card-text { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+    /* ─── PLATFORMS ─── */
+    .platforms {
+      padding: 7rem 4rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 3.5rem;
+    }
+    .platform-item {
+      background: var(--bg);
+      padding: 2.5rem 1rem;
+      text-decoration: none;
+      transition: background 0.2s;
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    }
+    .platform-item:hover { background: var(--surface); }
+    .platform-icon { font-size: 1.8rem; }
+    .platform-name {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .platform-count {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* ─── FEATURED BOOK CARD ─── */
+    .book-featured-card {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 3rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      text-decoration: none;
+      margin-bottom: 3rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .book-featured-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .book-featured-cover {
+      height: 360px;
+      background: linear-gradient(135deg, #1c1309 0%, #2c1e0a 50%, #3d2c10 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .book-featured-spine {
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 18px;
+      background: var(--accent);
+      opacity: 0.8;
+    }
+    .book-featured-text {
+      font-family: var(--ff-display);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--accent);
+      text-align: center;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      z-index: 1;
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    }
+    .book-featured-num {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: rgba(200,104,10,0.6);
+      text-transform: uppercase;
+    }
+    .book-featured-sub {
+      font-size: 0.7rem;
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(200,104,10,0.7);
+      letter-spacing: 0.05em;
+      text-transform: none;
+    }
+    .book-featured-info {
+      padding: 2.5rem 2.5rem 2.5rem 0;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .book-badge {
+      font-family: var(--ff-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(200,104,10,0.08);
+      border: 1px solid rgba(200,104,10,0.2);
+      padding: 0.3rem 0.75rem;
+      display: inline-block;
+      border-radius: 2px;
+    }
+
+    /* ─── IMAGE BOOK CARDS ─── */
+    .book-card-img { display: flex; flex-direction: column; }
+    .book-cover-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 280px;
+      background: var(--surface2);
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .book-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .book-card-img:hover .book-cover-img { transform: scale(1.04); }
+    /* Fallback text cover shown when image fails */
+    .book-cover-fallback {
+      display: none;
+      font-family: var(--ff-display);
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--accent);
+      text-align: center;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      padding: 1rem;
+      position: relative;
+    }
+    .book-cover-img-wrap.img-fallback {
+      background: linear-gradient(135deg, #2c2116 0%, #3d3020 100%);
+    }
+    .book-cover-img-wrap.img-fallback .book-cover-img { display: none; }
+    .book-cover-img-wrap.img-fallback .book-cover-fallback { display: block; }
+
+    .book-badge-new {
+      position: absolute;
+      top: 0.75rem; left: 0.75rem;
+      font-family: var(--ff-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+      z-index: 2;
+    }
+    .book-format-tag {
+      font-family: var(--ff-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    /* ─── BOOKS ─── */
+    .books {
+      padding: 7rem 4rem;
+      border-top: 1px solid var(--border);
+    }
+    .books-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 3.5rem;
+    }
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .book-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+      text-decoration: none;
+      display: flex; flex-direction: column;
+    }
+    .book-card:hover { transform: translateY(-6px); border-color: var(--accent); }
+    .book-cover {
+      height: 200px;
+      background: linear-gradient(135deg, #2c2116 0%, #3d3020 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--ff-display);
+      font-size: 0.95rem;
+      font-weight: 900;
+      color: var(--accent);
+      text-align: center;
+      padding: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      position: relative;
+      overflow: hidden;
+    }
+    .book-cover::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 10px,
+        rgba(255,255,255,0.01) 10px, rgba(255,255,255,0.01) 20px
+      );
+    }
+    .book-cover-num {
+      position: absolute;
+      bottom: 0.5rem; right: 0.75rem;
+      font-size: 4rem;
+      font-weight: 900;
+      color: rgba(200,104,10,0.15);
+      line-height: 1;
+    }
+    .book-info { padding: 1.4rem; flex: 1; display: flex; flex-direction: column; }
+    .book-title {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .book-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; flex: 1; }
+    .book-buy {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+
+    /* ─── BLOG ─── */
+    .blog {
+      padding: 7rem 4rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface2);
+    }
+    .blog-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 3rem;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+    .blog-card {
+      background: var(--surface);
+      padding: 2rem;
+      text-decoration: none;
+      transition: background 0.2s;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    .blog-card:hover { background: var(--surface2); }
+    .blog-card.featured { padding: 2.5rem; }
+    .blog-meta {
+      font-family: var(--ff-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .blog-title {
+      font-family: var(--ff-display);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .blog-card.featured .blog-title { font-size: 1.5rem; }
+    .blog-card:not(.featured) .blog-title { font-size: 1rem; }
+    .blog-excerpt { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .blog-read {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: auto;
+    }
+    .blog-card:hover .blog-read { color: var(--accent); }
+
+    /* ─── SPEAKING ─── */
+    .speaking {
+      padding: 7rem 4rem;
+      border-top: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .speaking::before {
+      content: 'SPEAK';
+      position: absolute;
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      font-family: var(--ff-display);
+      font-size: 16rem;
+      font-weight: 900;
+      color: rgba(200,104,10,0.04);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .speaking-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .speaking-inner .section-title { font-size: clamp(2rem, 4vw, 3rem); }
+
+    .contact-form {
+      margin-top: 3rem;
+      text-align: left;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      display: none;
+    }
+    .contact-form.open { display: block; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+    .form-group label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .form-group input,
+    .form-group textarea {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.75rem 1rem;
+      font-family: var(--ff-body);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 2px;
+    }
+    .form-group textarea { min-height: 100px; resize: vertical; }
+
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--accent); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #1a1410;
+      border-top: 1px solid var(--border);
+      padding: 4rem 4rem 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-brand .nav-logo { display: block; margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.85rem; color: #8a8075; line-height: 1.7; }
+    .footer-col h4 {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #8a8075;
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a {
+      font-size: 0.85rem;
+      color: #8a8075;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--accent); }
+    .footer-bottom {
+      border-top: 1px solid #2a2420;
+      padding-top: 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-bottom p { font-size: 0.78rem; color: #5a5450; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-left > * {
+      animation: fadeUp 0.7s both;
+    }
+    .hero-left .hero-tag { animation-delay: 0.1s; }
+    .hero-left .hero-headline { animation-delay: 0.25s; }
+    .hero-left .hero-sub { animation-delay: 0.4s; }
+    .hero-left .hero-actions { animation-delay: 0.55s; }
+    .hero-right { animation: fadeUp 0.7s 0.3s both; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      nav { padding: 1rem 2rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 7rem 2rem 3rem; }
+      .hero-right { padding: 0 2rem 4rem; }
+      .hero-image-wrap { width: 100%; max-width: 340px; height: 420px; }
+      .hero-stats { left: 0; bottom: 5rem; }
+      .about { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 2rem; }
+      .about-cards { grid-template-columns: 1fr 1fr; }
+      .platforms-grid { grid-template-columns: repeat(3, 1fr); }
+      .books { padding: 4rem 2rem; }
+      .books-grid { grid-template-columns: 1fr 1fr; }
+      .blog { padding: 4rem 2rem; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .featured { padding: 1.5rem 2rem; }
+      .speaking { padding: 4rem 2rem; }
+    }
+    @media (max-width: 600px) {
+      .books-grid { grid-template-columns: 1fr; }
+      .about-cards { grid-template-columns: 1fr; }
+      .platforms-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* ─── MARQUEE ─── */
+    .marquee-track {
+      display: flex; gap: 3rem;
+      animation: scroll-left 20s linear infinite;
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .featured-logos-wrap { overflow: hidden; flex: 1; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Advik Dhand</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#books">Books</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#speaking">Speaking</a></li>
+    <li><a href="#speaking" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-tag">Author · Speaker · Financial Educator</span>
+    <h1 class="hero-headline">
+      money is<br /><em>learnable.</em>
+    </h1>
+    <p class="hero-sub">
+      School never taught you how money works. Advik Dhand did. Empowering young people to take control of their financial future — one book, one talk at a time.
+    </p>
+    <div class="hero-actions">
+      <a href="#books" class="btn btn-primary">Explore My Books</a>
+      <a href="#about" class="btn btn-outline">Learn More</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-image-wrap">
+      <div class="hero-photo-placeholder"><img src="C:\\Users\\HP\\Downloads\\advikport.jpeg"/> </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Books</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">2025</span>
+        <span class="stat-label">Latest Release</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">★★★★★</span>
+        <span class="stat-label">Amazon Rated</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED ON -->
+<div class="featured">
+  <span class="featured-label">Featured on</span>
+  <div class="featured-logos-wrap">
+    <div class="marquee-track">
+      <span class="featured-logo">Forbes India</span>
+      <span class="featured-logo">Economic Times</span>
+      <span class="featured-logo">Money Control</span>
+      <span class="featured-logo">NDTV</span>
+      <span class="featured-logo">Hindustan Times</span>
+      <span class="featured-logo">Mint</span>
+      <!-- duplicate for seamless loop -->
+      <span class="featured-logo">Forbes India</span>
+      <span class="featured-logo">Economic Times</span>
+      <span class="featured-logo">Money Control</span>
+      <span class="featured-logo">NDTV</span>
+      <span class="featured-logo">Hindustan Times</span>
+      <span class="featured-logo">Mint</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-text">
+    <span class="section-label">Who I Am</span>
+    <h2 class="section-title">Young author. <em>Financial educator.</em> Speaker.</h2>
+    <p class="section-body">
+      Advik Dhand is a young author, speaker, and financial educator on a mission to teach young people what school never did — how money actually works. Inspired by his father's background in finance, Advik always questioned the "school-only" model of learning, seeking real-world lessons instead. He has authored three books and spoken at events to help the next generation take control of their financial future.<br /><br />
+      When he's not writing or speaking, Advik loves playing guitar, exploring new ideas, and finding practical ways to apply financial concepts in everyday life. His goal is simple: to empower young readers to believe they can make a difference — starting now.
+    </p>
+  </div>
+  <div class="about-cards">
+    <div class="about-card">
+      <span class="card-icon">📚</span>
+      <div class="card-title">Author</div>
+      <p class="card-text">3 books published, with "Do Legendary Shit" as the flagship — a practical money playbook for the next generation.</p>
+    </div>
+    <div class="about-card">
+      <span class="card-icon">🎤</span>
+      <div class="card-title">Speaker</div>
+      <p class="card-text">Speaks at schools, colleges, and events, delivering real talk on money, mindset, and building financial freedom.</p>
+    </div>
+    <div class="about-card">
+      <span class="card-icon">💰</span>
+      <div class="card-title">Finance Educator</div>
+      <p class="card-text">Breaking down investing, savings, and wealth creation for young people in a language that actually makes sense.</p>
+    </div>
+    <div class="about-card">
+      <span class="card-icon">🎸</span>
+      <div class="card-title">Creative Soul</div>
+      <p class="card-text">Guitarist, problem-solver, and lifelong learner. Finds inspiration in music, ideas, and the everyday application of knowledge.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORMS -->
+<section class="platforms" id="platforms">
+  <span class="section-label">Find Me On</span>
+  <h2 class="section-title">Connect with <em>Advik</em></h2>
+  <div class="platforms-grid">
+    <a href="#" class="platform-item">
+      <span class="platform-icon">▶️</span>
+      <span class="platform-name">YouTube</span>
+      <span class="platform-count">5.2M</span>
+    </a>
+    <a href="#" class="platform-item">
+      <span class="platform-icon">📸</span>
+      <span class="platform-name">Instagram</span>
+      <span class="platform-count">3.8M</span>
+    </a>
+    <a href="#" class="platform-item">
+      <span class="platform-icon">💼</span>
+      <span class="platform-name">LinkedIn</span>
+      <span class="platform-count">1.9M</span>
+    </a>
+    <a href="#" class="platform-item">
+      <span class="platform-icon">𝕏</span>
+      <span class="platform-name">X / Twitter</span>
+      <span class="platform-count">750K</span>
+    </a>
+    <a href="#" class="platform-item">
+      <span class="platform-icon">📘</span>
+      <span class="platform-name">Facebook</span>
+      <span class="platform-count">600K</span>
+    </a>
+    <a href="#" class="platform-item">
+      <span class="platform-icon">📧</span>
+      <span class="platform-name">Newsletter</span>
+      <span class="platform-count">200K</span>
+    </a>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section class="books" id="books">
+  <div class="books-header">
+    <div>
+      <span class="section-label">Published Works</span>
+      <h2 class="section-title">Books by <em>Advik</em></h2>
+    </div>
+    <a href="https://www.amazon.com/stores/author/B0DJNQFZ8S" target="_blank" class="btn btn-outline">All Books on Amazon →</a>
+  </div>
+
+  <!-- All 3 books in a grid with real covers -->
+  <div class="books-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+
+    <!-- Book 1: Do Legendary Shit (Hardcover) -->
+    <a href="https://www.amazon.com/Do-Legendary-Shit-Personal-Playbook/dp/1968437754" target="_blank" class="book-card book-card-img">
+      <div class="book-cover-img-wrap">
+        <span class="book-badge-new">Latest · 2025</span>
+        <img
+          src="https://m.media-amazon.com/images/I/81bMOSZJT9L._SY522_.jpg"
+          alt="Do Legendary Shit: Your Personal Money Playbook — Hardcover"
+          class="book-cover-img"
+          onerror="this.parentElement.classList.add('img-fallback')"
+        />
+        <div class="book-cover-fallback">
+          DO<br/>LEGENDARY<br/>SHIT
+          <span class="book-cover-num">01</span>
+        </div>
+      </div>
+      <div class="book-info">
+        <div class="book-format-tag">Hardcover</div>
+        <div class="book-title">Do Legendary Shit</div>
+        <p class="book-desc">Your Personal Money Playbook — the finance book school never gave you. Practical, real-world money lessons for young people.</p>
+        <span class="book-buy">Buy Hardcover on Amazon →</span>
+      </div>
+    </a>
+
+    <!-- Book 2: Do Legendary Shit (Paperback) -->
+    <a href="https://www.amazon.com/Do-Legendary-Shit-Personal-Playbook/dp/1968437746" target="_blank" class="book-card book-card-img">
+      <div class="book-cover-img-wrap">
+        <img
+          src="https://m.media-amazon.com/images/I/81bMOSZJT9L._SY522_.jpg"
+          alt="Do Legendary Shit: Your Personal Money Playbook — Paperback"
+          class="book-cover-img"
+          onerror="this.parentElement.classList.add('img-fallback')"
+        />
+        <div class="book-cover-fallback">
+          DO<br/>LEGENDARY<br/>SHIT
+          <span class="book-cover-num">02</span>
+        </div>
+      </div>
+      <div class="book-info">
+        <div class="book-format-tag">Paperback</div>
+        <div class="book-title">Do Legendary Shit</div>
+        <p class="book-desc">Your Personal Money Playbook — same essential guide, paperback edition. Perfect for gifting to a young person in your life.</p>
+        <span class="book-buy">Buy Paperback on Amazon →</span>
+      </div>
+    </a>
+
+    <!-- Book 3: Become a Young Investor in an Hour -->
+    <a href="https://www.amazon.co.uk/Become-Young-Investor-Hour-Market/dp/B0CV9QC46G" target="_blank" class="book-card book-card-img">
+      <div class="book-cover-img-wrap">
+        <img
+          src="https://m.media-amazon.com/images/I/61Q5e8XVMFL._SY522_.jpg"
+          alt="Become a Young Investor in an Hour"
+          class="book-cover-img"
+          onerror="this.parentElement.classList.add('img-fallback')"
+        />
+        <div class="book-cover-fallback">
+          BECOME A<br/>YOUNG<br/>INVESTOR
+          <span class="book-cover-num">03</span>
+        </div>
+      </div>
+      <div class="book-info">
+        <div class="book-format-tag">Paperback · Kindle</div>
+        <div class="book-title">Become a Young Investor in an Hour</div>
+        <p class="book-desc">Grow a "cash crop" with the Stock Market. A beginner-friendly guide to understanding investing, written for curious young minds.</p>
+        <span class="book-buy">Buy on Amazon UK →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+  <div class="blog-header">
+    <div>
+      <span class="section-label">Thoughts & Ideas</span>
+      <h2 class="section-title">Latest from the <em>Blog</em></h2>
+    </div>
+    <a href="#" class="btn btn-outline">Read All</a>
+  </div>
+  <div class="blog-grid">
+    <a href="#" class="blog-card featured">
+      <span class="blog-meta">April 28, 2026 · Career</span>
+      <div class="blog-title">Positive vs. Toxic Job: The 5 Signs That Tell You Everything</div>
+      <p class="blog-excerpt">You are respected for who you are. There is acknowledgment of your efforts. Growth is discussed, not just demanded. Here's how to know if your job is worth staying in...</p>
+      <span class="blog-read">Read Article →</span>
+    </a>
+    <a href="#" class="blog-card">
+      <span class="blog-meta">April 27 · Mindset</span>
+      <div class="blog-title">How Strong Are We Truly Within?</div>
+      <p class="blog-excerpt">Of all the needs that we have, the need for external validation is the most dangerous one.</p>
+      <span class="blog-read">Read →</span>
+    </a>
+    <a href="#" class="blog-card">
+      <span class="blog-meta">April 26 · Life</span>
+      <div class="blog-title">A Question That Can Change the Course of Your Life</div>
+      <p class="blog-excerpt">Imagine there is a movie of your life and you are the main character. Ask yourself this one thing.</p>
+      <span class="blog-read">Read →</span>
+    </a>
+  </div>
+</section>
+
+<!-- SPEAKING -->
+<section class="speaking" id="speaking">
+  <div class="speaking-inner">
+    <span class="section-label">Public Speaking</span>
+    <h2 class="section-title">Let's connect for your next <em>event.</em></h2>
+    <p class="section-body" style="margin-top:1rem;">
+      I speak at companies, colleges, schools, and industry events. I'm usually booked 4–6 weeks in advance — please plan accordingly.
+    </p>
+    <div style="margin-top:2rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="document.querySelector('.contact-form').classList.toggle('open')">
+        Fill the Form
+      </button>
+      <a href="mailto:hello@advikdhand.com" class="btn btn-outline">Email Me Directly</a>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Rahul" />
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Sharma" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="rahul@company.com" />
+      </div>
+      <div class="form-group">
+        <label>Organization</label>
+        <input type="text" placeholder="Your Company / College" />
+      </div>
+      <div class="form-group">
+        <label>Event Date (DD/MM/YYYY)</label>
+        <input type="text" placeholder="15/08/2026" />
+      </div>
+      <div class="form-group">
+        <label>Additional Details</label>
+        <textarea placeholder="Tell me about the event, expected audience size, and what topic you'd like me to cover..."></textarea>
+      </div>
+      <button class="btn btn-primary" style="width:100%;">Send Request</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="nav-logo" style="font-size:1.5rem; color: var(--accent);">Advik Dhand</a>
+      <p>Empowering young people to take control of their financial future — because what school didn't teach you, Advik will.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#speaking">Speaking</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Content</h4>
+      <ul>
+        <li><a href="#">Newsletter</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Videos</a></li>
+        <li><a href="#">Quotes</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Return Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Advik Dhand. All rights reserved.</p>
+    <p style="font-family: var(--ff-mono); font-size:0.7rem; color: var(--border);">money · mindset · freedom</p>
+  </div>
+</footer>
+
+</body>
+</html>
